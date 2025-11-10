@@ -3,7 +3,7 @@
 > **A compendium of architectural patterns, design decisions, and reference implementations for applied GenAI engineering.**
 
 ## Mission
-This repository serves as a living knowledge base for my coaching and mentorship engagements. It bridges the gap between theoretical GenAI concepts and the pragmatic realities of enterprise engineering.
+This repository distills insights gained from years of architecting large-scale enterprise systems into a living knowledge base. It bridges the gap between theoretical GenAI concepts and the pragmatic realities of enterprise engineering.
 
 The artifacts housed here are curated not just to show *how* something works, but *why* specific architectural decisions are made in production environments.
 
@@ -33,14 +33,16 @@ This "Field Guide" is organized by architectural domain rather than by specific 
 └── mentorship_resources/      # General guides and career artifacts for mentees
 ```
 
+## How to Use This Repository
+Start by reviewing the **`field_notes/`** for foundational architectural concepts and decision records before diving into the code in **`reference_impls/`**.
+
 ---
 
 ## Philosophy
-**Opinionated by Experience:** The code here reflects specific choices suited for high-scale, production-grade environments, particularly on Google Cloud.
-
-**Patterns over Frameworks:** Emphasis is placed on understanding the underlying architectural pattern rather than just the framework implementing it.
+* **Opinionated by Experience:** The code here reflects specific choices suited for high-scale, production-grade environments, particularly on Google Cloud.
+* **Patterns over Frameworks:** Emphasis is placed on understanding the underlying architectural pattern rather than just the framework implementing it.
 
 ---
 
 ## About the Author
-Emmanuel Awa is a Staff GenAI Architect at Google, specializing in large-scale enterprise adoption of intelligent, autonomous systems.
+**Emmanuel Awa** is a Staff GenAI Architect at Google, specializing in large-scale enterprise adoption of intelligent, autonomous systems.
