@@ -66,6 +66,21 @@ Long-term, compressed knowledge retrieved based on meaning rather than recency.
 
 * *Implementation:* Typically powered by Vector Databases (RAG).
 
+### **MemoryService**
+A service that provides long-term knowledge storage for agents, persisting information across multiple conversations and application restarts. It can support various storage backends (e.g., in-memory, vector databases, cloud services).
+
+### **load_memory**
+A reactive tool that an agent can use to explicitly search and retrieve relevant information from its `MemoryService` when it determines that past knowledge is needed to answer a query or complete a task.
+
+### **preload_memory**
+A proactive tool that automatically loads relevant information from the `MemoryService` into the agent's context before each turn. This ensures that the agent always has access to pertinent long-term knowledge, but can be less efficient than `load_memory` if not always needed.
+
+### **Memory Consolidation**
+The process of intelligently extracting and summarizing key facts from raw conversation events before storing them in long-term memory. This reduces storage size, improves retrieval efficiency, and helps the agent focus on salient information.
+
+### **Callback**
+A function registered with an agent or runner that is automatically executed at specific points in the agent's lifecycle (e.g., before/after an agent turn, before/after a tool call). Callbacks are used to inject custom logic, such as logging, monitoring, or automated memory storage.
+
 ## Session Management
 
 ### **Session**
