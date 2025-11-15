@@ -60,9 +60,13 @@ if "GOOGLE_API_KEY" not in os.environ:
 
 # 1. Initialize the Model with retry configuration
 
-retry_config = types.HttpRetryOptions(attempts=3)
-
-model = Gemini(model="gemini-pro", retry_options=retry_config)
+retry_config = types.HttpRetryOptions(
+    attempts=5,
+    exp_base=7,
+    initial_delay=1.0,
+    http_status_codes=[500, 502, 503, 504],
+)
+model = Gemini(model="gemini-2.5-flash-lite", retry_options=retry_config)
 
 
 
