@@ -1,4 +1,4 @@
-# Copyright 2025 Google LLC
+# Copyright 2025 Emmanuel Awa
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -33,7 +33,7 @@ retry_options = types.HttpRetryOptions(
 )
 
 root_agent = Agent(
-    name="basic_react_agent",
+    name="BasicReactAgent",
     model=Gemini(
       model="gemini-2.5-flash-lite",
       retry_options=retry_options,

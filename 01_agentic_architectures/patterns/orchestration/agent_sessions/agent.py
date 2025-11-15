@@ -1,0 +1,89 @@
+# Copyright 2025 Emmanuel Awa
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     https://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+"""
+
+Demonstrates a persistent session for a project setup assistant.
+
+
+
+This pattern shows how a `DatabaseSessionService` can be used to create an agent
+
+that remembers a user's project preferences (like programming language or
+
+database choice) across multiple conversations. This allows for a continuous
+
+and personalized user experience.
+
+
+
+As per ADR-008, this pattern defaults to using a persistent `DatabaseSessionService`.
+
+"""
+
+
+
+import os
+
+from typing import Any, Dict
+
+
+
+from google.adk.agents import LlmAgent
+
+from google.adk.models.google_llm import Gemini
+
+from google.adk.sessions import DatabaseSessionService
+
+from google.genai import types
+
+
+
+# Ensure the GOOGLE_API_KEY environment variable is set.
+
+if "GOOGLE_API_KEY" not in os.environ:
+
+    raise ValueError("GOOGLE_API_KEY environment variable not set.")
+
+
+
+# 1. Initialize the Model with retry configuration
+
+retry_config = types.HttpRetryOptions(attempts=3)
+
+model = Gemini(model="gemini-pro", retry_options=retry_config)
+
+
+
+# 2. Initialize the persistent Session Service (ADR-008)
+
+db_url = "sqlite:///my_project_assistant.db"
+
+session_service = DatabaseSessionService(db_url=db_url)
+
+
+
+# 3. Initialize the Agent
+
+root_agent = LlmAgent(
+
+    model=model,
+
+    name="project_setup_assistant",
+
+    description="An assistant that helps users set up their projects and remembers their preferences across sessions.",
+
+    instruction="You are a helpful project setup assistant. Your goal is to remember the user's choices so you can refer back to them later. For example, if they tell you their preferred programming language, you should remember it for the next time they ask a related question.",
+
+)

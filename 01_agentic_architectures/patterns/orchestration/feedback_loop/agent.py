@@ -1,4 +1,4 @@
-# Copyright 2025 Google LLC
+# Copyright 2025 Emmanuel Awa
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -37,7 +37,7 @@ def exit_loop():
 
 
 initial_writer_agent = Agent(
-    name="initial_writer_agent",
+    name="InitialWriterAgent",
     description="Writes the first draft of a short story.",
     model=Gemini(
       model="gemini-2.5-flash-lite",
@@ -49,7 +49,7 @@ initial_writer_agent = Agent(
 )
 
 critic_agent = Agent(
-    name="critic_agent",
+    name="CriticAgent",
     description="Provides feedback on a short story.",
     model=Gemini(
       model="gemini-2.5-flash-lite",
@@ -63,7 +63,7 @@ critic_agent = Agent(
 )
 
 refiner_agent = Agent(
-    name="refiner_agent",
+    name="RefinerAgent",
     description="Refines a short story based on critique.",
     model=Gemini(
       model="gemini-2.5-flash-lite",
@@ -84,12 +84,12 @@ refiner_agent = Agent(
 )
 
 story_refinement_loop = LoopAgent(
-    name="story_refinement_loop",
+    name="StoryRefinementLoop",
     sub_agents=[critic_agent, refiner_agent],
     max_iterations=2,
 )
 
 root_agent = SequentialAgent(
-    name="story_pipeline",
+    name="StoryPipeline",
     sub_agents=[initial_writer_agent, story_refinement_loop],
 )

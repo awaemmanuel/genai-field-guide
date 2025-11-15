@@ -213,5 +213,9 @@ __marimo__/
 .codingassistantconfig.json
 .codingassistantglobalconfig.json
 .codingassistantlocalconfig.json
-GEMINI.md 
+# GEMINI.md 
+
+# Database files
+*.db
+*.db-journal
 

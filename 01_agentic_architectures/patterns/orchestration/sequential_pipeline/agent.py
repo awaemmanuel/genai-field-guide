@@ -1,4 +1,4 @@
-# Copyright 2025 Google LLC
+# Copyright 2025 Emmanuel Awa
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -32,7 +32,7 @@ retry_options = types.HttpRetryOptions(
 )
 
 outline_agent = Agent(
-    name="outline_agent",
+    name="OutlineAgent",
     description="Creates an outline for a blog post.",
     model=Gemini(
       model="gemini-2.5-flash-lite",
@@ -44,7 +44,7 @@ outline_agent = Agent(
 )
 
 writer_agent = Agent(
-    name="writer_agent",
+    name="WriterAgent",
     description="Writes a blog post based on an outline.",
     model=Gemini(
       model="gemini-2.5-flash-lite",
@@ -56,7 +56,7 @@ writer_agent = Agent(
 )
 
 editor_agent = Agent(
-    name="editor_agent",
+    name="EditorAgent",
     description="Edits a blog post for grammar, spelling, and clarity.",
     model=Gemini(
       model="gemini-2.5-flash-lite",
@@ -68,6 +68,6 @@ editor_agent = Agent(
 )
 
 root_agent = SequentialAgent(
-    name="blog_pipeline",
+    name="BlogPipeline",
     sub_agents=[outline_agent, writer_agent, editor_agent]
 )

@@ -14,7 +14,7 @@ The repository is currently focused on **Autonomous Agent Architectures**, synth
 
 | Module | Focus Area | Key Patterns & Technologies |
 | :--- | :--- | :--- |
-| **01** | **Foundations & Orchestration** | Reasoning loops (ReAct), Multi-Agent orchestration. |
+| **01** | **Foundations & Orchestration** | Reasoning loops (ReAct), Multi-Agent orchestration (Sequential, Parallel, Delegation, Human-in-the-loop), MCP Integration. |
 | **02** | **Tooling & Interoperability** | Idiomatic Function Calling, Model Context Protocol (MCP). |
 | **03** | **State Management** | Episodic vs. Semantic memory, long-running thread persistence. |
 | **04** | **Production Engineering** | Evaluation frameworks (Evals), observability, and tracing. |

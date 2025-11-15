@@ -1,4 +1,4 @@
-# Copyright 2025 Google LLC
+# Copyright 2025 Emmanuel Awa
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -31,7 +31,7 @@ retry_options = types.HttpRetryOptions(
 )
 
 researcher_agent_1 = Agent(
-    name="researcher_agent_1",
+    name="ResearcherAgent1",
     description="Researches a topic and provides a summary of findings.",
     model=Gemini(
       model="gemini-2.5-flash-lite",
@@ -42,7 +42,7 @@ researcher_agent_1 = Agent(
 )
 
 researcher_agent_2 = Agent(
-    name="researcher_agent_2",
+    name="ResearcherAgent2",
     model=Gemini(
       model="gemini-2.5-flash-lite",
       retry_options=retry_options,
@@ -52,7 +52,7 @@ researcher_agent_2 = Agent(
 )
 
 aggregator_agent = Agent(
-    name="aggregator_agent",
+    name="AggregatorAgent",
     description="Aggregates a list of research summaries into a single summary.",
     model=Gemini(
       model="gemini-2.5-flash-lite",
@@ -63,11 +63,11 @@ aggregator_agent = Agent(
 )
 
 parallel_research_team = ParallelAgent(
-    name="parallel_research_team",
+    name="ParallelResearchTeam",
     sub_agents=[researcher_agent_1, researcher_agent_2],
 )
 
 root_agent = SequentialAgent(
-    name="research_system",
+    name="ResearchSystem",
     sub_agents=[parallel_research_team, aggregator_agent],
 )
