@@ -14,10 +14,10 @@ The repository is currently focused on **Autonomous Agent Architectures**, synth
 
 | Module | Focus Area | Key Patterns & Technologies |
 | :--- | :--- | :--- |
-| **01** | **Foundations & Orchestration** | Reasoning loops (ReAct), Multi-Agent orchestration (Sequential, Parallel, Delegation, Human-in-the-loop), MCP Integration. |
+| **01** | **Foundations & Orchestration** | ReAct, Multi-Agent orchestration (Sequential, Parallel, Delegation, Human-in-the-loop), MCP Integration. |
 | **02** | **Tooling & Interoperability** | Idiomatic Function Calling, Model Context Protocol (MCP). |
 | **03** | **State Management** | Episodic vs. Semantic memory, long-running thread persistence. |
-| **04** | **Production Engineering** | Evaluation frameworks (Evals), observability, and tracing. |
+| **04** | **Production Engineering** | Evaluation frameworks (Evals), observability, tracing, Deployment. |
 
 ---
 
@@ -28,7 +28,7 @@ This "Field Guide" is organized by architectural domain rather than by specific 
 ```text
 /
 ├── 01_agentic_architectures/  # <-- ACTIVE: Current focus area
-│   ├── patterns/              # Reusable core patterns (e.g., A2A orchestration)
+│   ├── patterns/              # Reusable core patterns (e.g., A2A orchestration). Each pattern includes an `agent.py` for the agent definition and a `runner.py` for local testing.
 │   ├── reference_impls/       # End-to-end POCs and Capstone projects
 │   └── workshops/             # Raw materials from specific intensives (e.g., Google 5-Day)
 ├── 02_rag_and_retrieval/      # (Planned) Advanced RAG patterns

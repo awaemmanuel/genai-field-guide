@@ -51,7 +51,7 @@ compaction_agent = LlmAgent(
 )
 
 # 3. Define the Application with Context Compaction
-root_app = App(
+root_agent = App(
     name="financial_analyst_app",
     root_agent=compaction_agent,
     events_compaction_config=EventsCompactionConfig(
