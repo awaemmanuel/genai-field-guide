@@ -20,11 +20,17 @@ A design pattern where a specialist agent is wrapped as a tool and used by a pri
 
 * *See also: Orchestration*
 
+### **Agent Deployment**
+
+The process of packaging, configuring, and releasing an AI agent into a production environment, making it accessible for use. This often involves setting up infrastructure, managing dependencies, and ensuring scalability and reliability.
+
 ### **Cognitive Architecture**
 
 The specific "brain" pattern used by an agent to reason. Defines how it breaks down problems.
 
-* *Examples in this repo:* ReAct (Reason+Act), Chain-of-Thought (CoT), Tree-of-Thoughts (ToT).
+*   **ReAct (Reason+Act):** The default cognitive architecture for this repository. The agent interleaves **Reasoning** (forming a thought about what to do next) and **Acting** (using a tool to interact with the environment). After each action, the agent observes the result and uses that observation to inform its next thought.
+*   **Chain-of-Thought (CoT):** The model generates a series of intermediate reasoning steps before producing a final answer. It is a pure reasoning pattern and does not involve external actions.
+*   **Tree-of-Thoughts (ToT):** The model explores multiple reasoning paths (thoughts) simultaneously. It self-evaluates the progress made in each path and decides which one to pursue.
 
 ### **Model Context Protocol (MCP)**
 
@@ -147,3 +153,17 @@ Forcing a generative model to return response strictly adhering to a specific sc
 ### **Traces**
 
 End-to-end narratives that track the flow of a request or operation through an agent's components and tool calls. Traces provide a causal chain of events, helping to visualize and debug complex interactions.
+
+## Testing
+
+### **Pytest**
+
+The standardized testing framework for this repository. It is used to write and run tests for all agentic patterns.
+
+### **Unit Testing**
+
+Testing individual, deterministic components of an agent in isolation. This includes parsers, validators, and helper functions.
+
+### **Integration Testing**
+
+Testing how different components of an agent work together. This often involves using mocked examples for the agent loop and tool interactions to simulate real-world scenarios.

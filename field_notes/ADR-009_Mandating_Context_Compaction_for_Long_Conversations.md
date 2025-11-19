@@ -1,8 +1,8 @@
 # ADR-009: Mandating Context Compaction for Long-Running Conversations
 
-**Status:** Proposed
-**Date:** 2025-11-14
-**Author:** Emmanuel Awa
+**Status:** Accepted  
+**Date:** 2025-11-14  
+**Author:** Emmanuel Awa  
 **Tags:** [Agentic, Context Management, Scalability]
 
 ## Context
@@ -21,11 +21,11 @@ This means that such agents must be wrapped in an `App` and configured with an a
 
 ## Consequences
 
-*   **Positive:**
-    *   Our agent patterns will be more robust and less likely to fail due to context window limitations.
-    *   It forces us to think about the conversational length and context management early in the design process.
-    *   It provides a clear, standardized solution to a common problem in agent development.
+* **Positive:**
+  * Our agent patterns will be more robust and less likely to fail due to context window limitations.
+  * It forces us to think about the conversational length and context management early in the design process.
+  * It provides a clear, standardized solution to a common problem in agent development.
 
-*   **Negative:**
-    *   It introduces a small amount of additional complexity in the agent setup, as the agent must be wrapped in an `App`.
-    *   It will incur a minor increase in LLM usage due to the background summarization calls. This is a necessary trade-off for building scalable and resilient agents.
+* **Negative:**
+  * It introduces a small amount of additional complexity in the agent setup, as the agent must be wrapped in an `App`.
+  * It will incur a minor increase in LLM usage due to the background summarization calls. This is a necessary trade-off for building scalable and resilient agents.
